@@ -9,79 +9,26 @@
   </head>
 
   <body>
-    <main class="main__container">
-      <h1 class="headind">Exercice Tracker</h1>
+    <main>
+      <h2>API Project: File Metadata Microservcie</h2>
 
-      <article class="card">
-        <h3 class="card__heading">Create a New User</h3>
+      <h3>Usage:</h3>
 
-        <p class="card__code">
-          <code class="card__code-text">POST /api/users</code>
-        </p>
+      <p>Please Upload a File...</p>
 
-        <form action="/api/users" method="post" class="card__form">
-          <input
-            type="text"
-            name="username"
-            class="card__form__input"
-            placeholder="username"
-            required
-          />
-
-          <button type="submit" class="card__form__button">Submit</button>
+      <div class="form__container">
+        <form action="/api/fileanalyse" method="post" enctype="multipart/form-data">
+          <input type="file" required name="upfile" />
+          <button type="submit">Upload</button>
         </form>
-      </article>
-
-      <article class="card">
-        <h3 class="card__heading">Add exercises</h3>
-
-        <p class="card__code">
-          <code class="card__code-text">POST /api/users/:id/exercises </code>
-        </p>
-
-        <form method="post" class="card__form" id="exercice-form">
-          <input
-            type="text"
-            name="userId"
-            class="card__form__input"
-            placeholder="user id"
-            required
-          />
-          <input
-            type="text"
-            name="description"
-            class="card__form__input"
-            placeholder="description*"
-            required
-          />
-          <input
-            type="number"
-            name="duration"
-            class="card__form__input"
-            placeholder="duration* (mins.)"
-            required
-          />
-          <input type="date" name="date" class="card__form__input" />
-
-          <button type="submit" class="card__form__button">Submit</button>
-        </form>
-      </article>
-
-      <section class="exercice__log">
-        <p>
-          <strong>GET user's exercice log:</strong>
-          <code class="exercice__log__code">GET /api/users/:id/logs?[from][&to][&limit]</code>
-        </p>
-
-        <p><strong>[ ]</strong> = optional</p>
-
-        <p>
-          <strong>from, to</strong> = dates (yyyy-mm-dd);
-          <strong>limit</strong> = number
-        </p>
-      </section>
+      </div>
     </main>
 
-    <script src="/public/app.js" defer></script>
+    <footer>
+      <p>
+        Made with 💙 By
+        <a href="https://github.com/DiogoJorge1401"> Diogo Jorge </a>
+      </p>
+    </footer>
   </body>
 </html>

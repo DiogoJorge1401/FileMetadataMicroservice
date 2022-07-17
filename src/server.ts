@@ -1,8 +1,6 @@
-import 'dotenv/config'
 import cors from "cors";
 import e, { Express } from "express";
 import { routes } from "./routes";
-import { connectToDB } from './utils';
 
 class App {
   app: Express
@@ -10,7 +8,6 @@ class App {
 
   constructor() {
     this.app = e();
-    this.settings()
     this.middlewares()
     this.routes()
     this.start()
@@ -27,11 +24,6 @@ class App {
     this.app.get("/", (_, res) => res.sendFile(`${__dirname}/views/index.html`));
     this.app.use("/api", routes);
   }
-
-  settings() {
-    connectToDB()
-  }
-
   start() {
     this.app.listen(this.port, () => console.log(`Server is Running on ${this.port}`));
   }

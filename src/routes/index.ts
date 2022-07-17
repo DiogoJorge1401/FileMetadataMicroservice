@@ -1,8 +1,17 @@
 import { Router } from 'express';
-import { userRoutes } from './userRoutes';
+import multer from 'multer';
 
+const upload = multer({ dest: "uploads/" });
 const routes = Router();
 
-routes.use('/users', userRoutes)
+routes.post('/fileanalyse', upload.single('upfile'), (req, res) => {
+  const file = req.file;
+  
+  res.json({
+    name: file?.originalname,
+    type: file?.mimetype,
+    size: file?.size
+  })
+})
 
 export { routes };
